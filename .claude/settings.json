@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Edit(./apps/content/data/**)",
+      "Write(./apps/content/data/**)",
+      "Edit(./apps/home/data/**)",
+      "Write(./apps/home/data/**)",
+      "Edit(./context/**)",
+      "Write(./context/**)",
+      "Edit(./files/**)",
+      "Write(./files/**)",
+      "Edit(./skills-to-upload/**)",
+      "Write(./skills-to-upload/**)",
+      "Edit(./.claude/skills/*-what-works/**)",
+      "Write(./.claude/skills/*-what-works/**)",
+      "Edit(./setup/progress.md)",
+      "WebSearch",
+      "WebFetch",
+      "Bash(bash setup/scripts/start-task-list.sh)",
+      "Bash(powershell -ExecutionPolicy Bypass -File setup\\scripts\\start-task-list.ps1)"
+    ]
+  }
+}

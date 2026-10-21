@@ -1,0 +1,13 @@
+{
+  "tools": [
+    {
+      "id": "content",
+      "name": "Content Machine OS",
+      "app": "apps/content/",
+      "media": true,
+      "dataFiles": [
+        "apps/content/data/content.json"
+      ]
+    }
+  ]
+}

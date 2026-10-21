@@ -1,0 +1,29 @@
+# Built zips
+dist/
+
+# Safety copies the app makes before every save
+*.backup.json
+apps/content/data/*.tmp-*
+
+# A customer's own skill, built from their research, and its zip: never ships
+.claude/skills/*-what-works/
+skills-to-upload/*.zip
+
+# Computer clutter
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# Local Claude Code files that belong to one computer, not the kit
+.claude/launch.json
+.claude/settings.local.json
+.claude/.cc-writes/
+
+# Home layout: one person's choice of boxes, made while testing
+apps/home/data/
+__pycache__/
+*.pyc
+
+# Photos and videos added to posts: they stay on this computer, never in the kit
+apps/*/data/media/

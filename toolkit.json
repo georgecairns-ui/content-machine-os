@@ -1,0 +1,44 @@
+{
+  "id": "content",
+  "name": "Content Machine OS",
+  "version": "1.0.0",
+  "sharedVersion": "7",
+  "attachingVersion": "1",
+  "app": "apps/content/",
+  "media": true,
+  "dataFiles": [
+    "apps/content/data/content.json"
+  ],
+  "skills": [
+    "research-my-market",
+    "build-my-content-skill",
+    "plan-my-content",
+    "write-posts",
+    "turn-this-into-posts",
+    "use-my-case-study",
+    "content-check-in",
+    "ive-posted-it",
+    "sort-content-brain-dump"
+  ],
+  "setupSteps": [
+    "setup/content-01-your-business.md",
+    "setup/content-02-your-platforms.md",
+    "setup/content-03-research.md",
+    "setup/content-04-first-plan.md"
+  ],
+  "contextFiles": [
+    "context/content.md"
+  ],
+  "connections": [],
+  "claudeSection": "apps/content/ATTACH-CLAUDE.md",
+  "reads": [
+    "pipeline",
+    "whats-new"
+  ],
+  "sends": [
+    {
+      "to": "task-list",
+      "what": "tasks for the posts due today and for everything Claude needs from you, such as a photo or a video, waiting for your click"
+    }
+  ]
+}
