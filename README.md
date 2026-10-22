@@ -6,7 +6,7 @@ Most business owners know they should post. They stare at a blank page, post twi
 
 **Claude never posts for you.** You approve each post (or let Claude finish the ones you trust) and post it yourself: press Copy, press Open, paste, post, then tell it "I've posted it". Content Machine OS never posts, schedules, messages, follows or logs in anywhere, and nothing leaves your computer except what Claude looks up on public web pages.
 
-Content Machine OS is part of a toolkit of 9 free tools from Get AI Powers. The others (a task list, Pipeline OS, proposals and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
+Content Machine OS is part of a toolkit of 8 free tools from Get AI Powers. The others (a task list, Pipeline OS, proposals and more) show in the app's menu, and Get AI Powers sets them up with you on a free call.
 
 ## What happens when you type /setup
 
