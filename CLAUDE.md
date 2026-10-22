@@ -49,7 +49,7 @@ If `context/content.md` still says "Status: not filled in yet", you can't resear
 | **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Content Machine: one Content calendar page with views to flick between at the top (Calendar with month and week and drag and drop, To do, Ideas, Research, Platforms), a Health check button and a Settings gear. The **Brain dump** button at the top (shared by every tool, and on Home) records a voice note or a typed one. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-task-list` |
 | `Open Content Machine.html` | Double-clicking it goes to the link above when the app is running |
 | `apps/content/` | The content app. Its plan is `apps/content/data/content.json`; `apps/content/CLAUDE.md` explains the format and the rules |
-| `apps/shared/` | The app's look: `theme.css` holds every colour and font. Also the toolkit menu: `catalogue.json` lists all 9 tools and the booking link |
+| `apps/shared/` | The app's look: `theme.css` holds every colour and font. Also the toolkit menu: `catalogue.json` lists all 8 tools and the booking link |
 | `apps/installed.json` | The tools in this folder. The menu and the helper both read it |
 | `context/` | Your notes about the business (see above) |
 | `files/` | Their documents, in numbered folders |
@@ -101,7 +101,7 @@ When you learn something lasting (a new part of the business, a team change, a p
 
 ## Other tools in the toolkit
 
-Content Machine OS is one of 9 free tools from Get AI Powers. The app's menu shows the others under "More tools" with a padlock. `apps/shared/catalogue.json` lists every tool, what it does and the booking link.
+Content Machine OS is one of 8 free tools from Get AI Powers. The app's menu shows the others under "More tools" with a padlock. `apps/shared/catalogue.json` lists every tool, what it does and the booking link.
 
 - If they ask about a locked tool, or say they want one: explain what it does in plain words (its description in the catalogue is a good start), say Get AI Powers sets it up with them on a free call, and give them the booking link (`booking.url` in the catalogue). Say it once. Never push it.
 - If they say they're on that call, or that Get AI Powers has told them to go ahead: follow `ATTACHING.md` in this folder to attach the tool.
