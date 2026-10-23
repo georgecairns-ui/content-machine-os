@@ -3,7 +3,7 @@
   "name": "Content Machine OS",
   "version": "1.0.0",
   "sharedVersion": "7",
-  "attachingVersion": "1",
+  "attachingVersion": "3",
   "app": "apps/content/",
   "media": true,
   "dataFiles": [
