@@ -13,7 +13,7 @@
 
   const SOURCE_LABELS = {
     research: "Research", "brain-dump": "Brain dump", you: "You", pipeline: "Pipeline OS",
-    "whats-new": "What’s New in Claude", "case-study": "Case study", claude: "Claude"
+    "case-study": "Case study", claude: "Claude"
   };
 
   // What the person has chosen on this page. Kept between redraws.

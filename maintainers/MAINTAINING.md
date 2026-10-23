@@ -53,7 +53,7 @@ The other skills are for asking in chat: `turn-this-into-posts`, `use-my-case-st
 
 ## Attaching
 
-`toolkit.json` and `apps/content/ATTACH-CLAUDE.md`. Reads: Pipeline OS won deals (each new win becomes an idea with `source: "pipeline"` and a case-study need), What's New in Claude OS updates worth posting about (`source: "whats-new"`) and `context/voice.md`. Sends to Task List OS: posts due today and every open need, as suggested tasks in the task list's own format, with `"source": { "tool": "content", "id": ... }`, waiting for the person's click. Content Machine OS never edits another tool's records.
+`toolkit.json` and `apps/content/ATTACH-CLAUDE.md`. Reads: Pipeline OS won deals (each new win becomes an idea with `source: "pipeline"` and a case-study need) and `context/voice.md`. Sends to Task List OS: posts due today and every open need, as suggested tasks in the task list's own format, with `"source": { "tool": "content", "id": ... }`, waiting for the person's click. Content Machine OS never edits another tool's records.
 
 ## How the release works
 
