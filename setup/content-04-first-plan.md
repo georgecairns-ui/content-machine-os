@@ -14,7 +14,7 @@ Save the answer as `settings.defaultApproval` (`ask` or `auto`) in `apps/content
 
 Follow `.claude/skills/plan-my-content`. It fills the next `settings.planWeeks` weeks (2 unless they've changed it), writes the words for every post (a post that needs a photo or video still gets its caption), and lists what it needs from them (a photo, a video, a case study). Only a post that needs a case study or information waits for their answer before it is written.
 
-If Pipeline OS or What's New in Claude OS is attached, `plan-my-content` also brings in the wins and news as ideas. If Task List OS is attached, it adds what you need from them as suggested tasks there.
+If Pipeline OS is attached, `plan-my-content` also brings in the wins as ideas. If Task List OS is attached, it adds what you need from them as suggested tasks there.
 
 ## 3. Open the Calendar and show them how it works
 

@@ -115,7 +115,6 @@ Follow `ATTACHING.md` on a scratch copy of Task List OS, then check:
 - Both tools show as dropdowns in the sidebar; Home offers both tools' boxes (this tool's start off, in the hidden list, per the shared rule); nothing in Task List OS broke; setup didn't ask what the business does a second time.
 - `plan-my-content` adds a suggested task to Task List OS for each open need, and `content-check-in` for each post due today, with `source.tool` set to `content`, a `source.id` that matches the post or need, `suggested: true` and `addedBy: "claude"`. They show on its Review page with a New tag and need a click. Running either twice adds nothing twice. A task for a posted post or a need already done is never added.
 - With Pipeline OS also attached: a deal moved to `won` becomes one idea (`source: "pipeline"`) with a case-study need once `plan-my-content` runs, never twice, and no deal record is changed.
-- With What's New in Claude OS attached: a worthwhile update becomes an idea (`source: "whats-new"`).
 - With none of those attached: everything above is skipped quietly, with no error.
 
 ## 10. Helper: Node and Python behave the same

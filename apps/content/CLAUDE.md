@@ -60,7 +60,7 @@ Every `id` is a short prefix plus 6 random lowercase letters or digits (`p-k3j9x
 
 ### `ideas[]`
 
-`{ id, title, notes, source, theme, createdAt, status, postId }`. `source` is `research`, `brain-dump`, `you`, `pipeline`, `whats-new`, `case-study` or `claude`. `status` is `new`, `planned` or `dropped`; `postId` is `null` until it becomes a post. **Dropping never deletes.** Never remove an idea.
+`{ id, title, notes, source, theme, createdAt, status, postId }`. `source` is `research`, `brain-dump`, `you`, `pipeline`, `case-study` or `claude`. `status` is `new`, `planned` or `dropped`; `postId` is `null` until it becomes a post. **Dropping never deletes.** Never remove an idea.
 
 ### `posts[]`
 
@@ -119,7 +119,6 @@ It can show the plan, move posts between days, let the person edit the words, ad
 
 - **Task List OS** (when `apps/installed.json` has `task-list`): see `ATTACH-CLAUDE.md` for what lands there and how. It needs the person's click there before anything happens.
 - **Pipeline OS** (`pipeline`): read `apps/pipeline/data/pipeline.json` for deals in the `won` stage. Each new win becomes an idea (`source: "pipeline"`) and a case-study need. Read only: never edit a deal.
-- **What's New in Claude OS** (`whats-new`): read its updates and turn the ones worth a post into ideas (`source: "whats-new"`). Read only.
 - If a tool isn't attached, skip that part quietly.
 
 ## If something goes wrong

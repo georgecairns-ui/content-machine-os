@@ -32,8 +32,7 @@
   "connections": [],
   "claudeSection": "apps/content/ATTACH-CLAUDE.md",
   "reads": [
-    "pipeline",
-    "whats-new"
+    "pipeline"
   ],
   "sends": [
     {

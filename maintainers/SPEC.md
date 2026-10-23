@@ -80,7 +80,7 @@ Shapes (every id from `ui.makeId`, every date `YYYY-MM-DD`, every timestamp ISO)
 - `research.competitors[]`: `{ id, name, url, platforms: [keys], whatWorks: "plain sentences", examples: [{ platform, what, why }] }`
 - `research.whatWorks.<key>`: plain paragraph on what goes well in this industry on that platform.
 - `research.skill`: name of the business skill Claude built, for example `fern-and-finch-what-works`.
-- `ideas[]`: `{ id, title, notes, source: "research"|"brain-dump"|"you"|"pipeline"|"whats-new"|"case-study"|"claude", theme, createdAt, status: "new"|"planned"|"dropped", postId: null }`. Dropping never deletes.
+- `ideas[]`: `{ id, title, notes, source: "research"|"brain-dump"|"you"|"pipeline"|"case-study"|"claude", theme, createdAt, status: "new"|"planned"|"dropped", postId: null }`. Dropping never deletes.
 - `posts[]`:
 
 ```json
@@ -222,7 +222,7 @@ New `context/content.md` (template with headings only): What we sell, Problems w
 
 ## Attaching (`ATTACH-CLAUDE.md`, `toolkit.json`)
 
-- Reads: Pipeline OS won deals (each new win becomes an idea with `source: "pipeline"` and a case-study need), What's New in Claude OS updates worth posting about (`source: "whats-new"`), `context/voice.md`.
+- Reads: Pipeline OS won deals (each new win becomes an idea with `source: "pipeline"` and a case-study need), `context/voice.md`.
 - Sends to Task List OS: posts due today ("Post to Instagram: <title>") and every open need ("Record a video for Tuesday's TikTok"), written the way Pipeline OS writes tasks into Task List OS (copy its `ATTACH-CLAUDE.md` pattern), waiting for the person's click.
 - `catalogue.json`: change only the `content` entry's description, in this kit only, to: "Plans your posts from what your customers search for and what works for your competitors, drafted in your voice and scored for each platform. You approve every post and post it yourself." Note it in `maintainers/SHARED-CATALOGUE-RENAME.md` like the other kits.
 

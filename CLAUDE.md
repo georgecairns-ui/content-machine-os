@@ -49,7 +49,7 @@ If `context/content.md` still says "Status: not filled in yet", you can't resear
 | **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Content Machine: one Content calendar page with views to flick between at the top (Calendar with month and week and drag and drop, To do, Ideas, Research, Platforms), a Health check button and a Settings gear. The **Brain dump** button at the top (shared by every tool, and on Home) records a voice note or a typed one. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-task-list` |
 | `Open Content Machine.html` | Double-clicking it goes to the link above when the app is running |
 | `apps/content/` | The content app. Its plan is `apps/content/data/content.json`; `apps/content/CLAUDE.md` explains the format and the rules |
-| `apps/shared/` | The app's look: `theme.css` holds every colour and font. Also the toolkit menu: `catalogue.json` lists all 8 tools and the booking link |
+| `apps/shared/` | The app's look: `theme.css` holds every colour and font. Also the toolkit menu: `catalogue.json` lists all 7 tools and the booking link |
 | `apps/installed.json` | The tools in this folder. The menu and the helper both read it |
 | `context/` | Your notes about the business (see above) |
 | `files/` | Their documents, in numbered folders |

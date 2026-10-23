@@ -13,17 +13,17 @@ You fill the calendar so the person doesn't stare at a blank page. You propose; 
 - `context/content.md`, `context/voice.md` and the what-works skill named in `research.skill`.
 - `.claude/skills/write-posts/references/platforms.md`.
 - Today's date. Work out dates from it; never guess them.
-- Optional, if attached (`apps/installed.json`): Pipeline OS (`pipeline`), What's New in Claude OS (`whats-new`) and Task List OS (`task-list`).
+- Optional, if attached (`apps/installed.json`): Pipeline OS (`pipeline`) and Task List OS (`task-list`).
 
 If `research.updatedAt` is empty or `platforms` has no platform switched on, say so and offer to run `research-my-market` or the platforms step first. Don't plan from nothing.
 
 ## Steps
 
-1. **Bring in wins and news (only if attached).** Pipeline OS: every deal in `apps/pipeline/data/pipeline.json` with `stage: "won"` that has no idea yet becomes an idea (`source: "pipeline"`, with the deal's id in `notes` so you can tell next time, and a plain note on what happened, from the deal's `summary`) and gets a `case-study` need when it becomes a post. What's New in Claude OS: read the updates its own `CLAUDE.md` says to read, and turn the ones this business could genuinely say something useful about into ideas (`source: "whats-new"`). Never edit a deal or an update. If neither is attached, skip this step quietly.
+1. **Bring in wins (only if attached).** Pipeline OS: every deal in `apps/pipeline/data/pipeline.json` with `stage: "won"` that has no idea yet becomes an idea (`source: "pipeline"`, with the deal's id in `notes` so you can tell next time, and a plain note on what happened, from the deal's `summary`) and gets a `case-study` need when it becomes a post. Never edit a deal. If Pipeline OS isn't attached, skip this step quietly.
 2. **Work out the window.** It starts on the next day with no post planned (today if today is empty and it's before the default time, otherwise tomorrow) and runs for `settings.planWeeks` weeks of 7 days. Take the weeks from the day `weekStarts` names when you work out where a week begins.
 3. **Work out what each week needs.** For each platform that's on, the target is its `perWeek`. Count the posts already in that week that carry that platform (posts with a date, not skipped) and fill only the gap. A post can carry several platforms: that counts once for each. If `perWeek` is 0 for a platform, leave it out. Never go over a platform's `perWeek`.
 4. **Choose what to say.** In this order:
-   - ideas with `status: "new"` (the person's own, brain dumps, wins and news first),
+   - ideas with `status: "new"` (the person's own, brain dumps and wins first),
    - `research.searches` with `demand: "high"`, then `medium`, matched to the themes,
    - `research.trends` that are in season or end soon, placed before their `until`,
    - then your own ideas (`source: "claude"`), only to fill gaps, grounded in `context/content.md`.
