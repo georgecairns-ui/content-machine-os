@@ -542,4 +542,18 @@ check("make cover and reorder change the order", function () {
   assert.strictEqual(M.mediaWords({ media: [item("m-a", "image", "jpg"), item("m-b", "image", "jpg"), item("m-c", "video", "mp4")] }), "2 photos and 1 video");
 });
 
+check("todoTotal adds every To do group", function () {
+  assert.strictEqual(M.todoTotal({ overdue: [1, 2], today: [], week: [3], later: [4, 5, 6] }), 6);
+  assert.strictEqual(M.todoTotal({ overdue: [], today: [], week: [], later: [] }), 0);
+});
+check("postsOnDays counts posts on the given days and skips skipped ones", function () {
+  const data = { posts: [{ date: "2026-10-26", status: "drafted" }, { date: "2026-10-27", status: "approved" }, { date: "2026-10-27", status: "skipped" }, { date: "2026-11-09", status: "drafted" }] };
+  assert.strictEqual(M.postsOnDays(data, ["2026-10-26", "2026-10-27", "2026-10-28"]), 2);
+  assert.strictEqual(M.postsOnDays(data, []), 0);
+});
+check("averagePercent is a whole number, 0 when nothing is uploading", function () {
+  assert.strictEqual(M.averagePercent([]), 0);
+  assert.strictEqual(M.averagePercent([{ percent: 10 }, { percent: 25 }]), 18);
+});
+
 console.log(passed + " checks passed");

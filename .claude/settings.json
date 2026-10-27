@@ -2,8 +2,8 @@
   "permissions": {
     "allow": [
       "Read(./**)",
-      "Edit(./apps/content/data/**)",
-      "Write(./apps/content/data/**)",
+      "Edit(./apps/content/data/content.json)",
+      "Write(./apps/content/data/content.json)",
       "Edit(./apps/home/data/**)",
       "Write(./apps/home/data/**)",
       "Edit(./context/**)",
