@@ -188,7 +188,7 @@ Each prompt ends "Change nothing else." and keeps to the tool's own data file, i
 
 ## Skills (`.claude/skills/`), triggered by what people say
 
-Shared (copied unchanged from the template): `connect-a-tool`, `file-it`, `human-email`, `keep-context-fresh`, `match-my-brand`, `open-task-list`, `polite-chaser`, `setup`, `sort-brain-dump`, `write-like-me`.
+Shared (copied unchanged from the template): `connect-a-tool`, `file-it`, `human-email`, `keep-context-fresh`, `match-my-brand`, `open-the-app`, `get-updates`, `polite-chaser`, `setup`, `sort-brain-dump`, `write-like-me`.
 
 The tool's own:
 

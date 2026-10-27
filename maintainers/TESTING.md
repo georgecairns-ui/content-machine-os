@@ -1,6 +1,6 @@
 # Testing Content Machine OS
 
-How to test the whole thing as a customer would, without touching the repo. Also follow section 5 of `SHARED-V3-CHANGES.md` and the testing sections of `SHARED-V4-CHANGES.md`, `SHARED-V5-CHANGES.md`, `SHARED-V6-CHANGES.md` and `SHARED-V7-CHANGES.md` for the shared parts.
+How to test the whole thing as a customer would, without touching the repo. Also follow section 5 of `SHARED-V3-CHANGES.md` and the testing sections of `SHARED-V4-CHANGES.md` through `SHARED-V11-CHANGES.md` for the shared parts.
 
 ## 1. The model's own tests
 
@@ -126,6 +126,10 @@ Run the app once with `node apps/server/server.js` and once with `python3 apps/s
 `node maintainers/test-helper-media.js` starts a scratch copy of the Node helper, and of the Python helper if `python3` is there, on a free port and checks over http: a photo is saved (201) and played back with the right type; a video answers Range requests with 206 and an impossible range with 416; saving the same name again is a 409 and leaves the first file alone; a request that says it is over 200 MB is a 413 and writes nothing; bad names are 400; the wrong `Content-Type` for the ending is 415; a missing length is 411; a tool without `"media": true`, or not installed, is 404; another website's `Origin` and a wrong `Host` are 403; delete, post and patch are 405; the data file still saves. It uses a temporary folder and never writes into the kit. If it can't open a port it prints `COULD NOT RUN` and exits with 2: run it somewhere that can. It is not part of `make-release.sh`, which has to work on a machine that blocks local ports.
 
 Then once by hand, with each helper in turn: drag a 100 MB or larger video onto a post and check the bar moves, the helper's memory stays low (the upload is streamed to disk, not held in memory), and the video plays and skips around in the lightbox (that is Range working in the browser).
+
+## 12. The helper's safety checks
+
+`node maintainers/test-helper-safety.js` starts a scratch copy of each helper and checks: a badly formed address, body or header never stops the helper or answers with a 5xx; the version check behaves (a stale save gets 409, a bad `If-Match` gets 400, an older app with no `If-Match` still saves, 2 saves based on the same copy cannot both pass); `apps/shared/js/store.js`'s re-read-and-retry on a 409, run in a sandbox against the real helper; and `store.js` against a helper that sends no `ETag` at all. If it can't open a port it prints `COULD NOT RUN` and exits with 2.
 
 ## What can't be tested without real Claude and a real business
 
