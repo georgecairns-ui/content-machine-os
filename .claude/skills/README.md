@@ -31,7 +31,8 @@ Your own what-works skill appears here too once the research has run, named afte
 | `connect-a-tool` | "Connect my team's shared folder" | Claude walks you through connecting an app safely |
 | `match-my-brand` | "Make it match my brand" | Your colours, font and logo on the app, from your website or brand guidelines |
 | `setup` | `/setup` | Runs the setup, or carries on where it left off |
-| `open-task-list` | "Open my content plan" | Starts the app if needed and gives you the link, http://localhost:4747 |
+| `open-the-app` | "Open my content machine", "open the app" | Starts the app if needed and gives you the link, http://localhost:4747 |
+| `get-updates` | "Get the latest version", "any updates?" | Your copy brought up to date with a safe backup first. Your records, notes, skills and brand stay exactly as they are |
 | `keep-context-fresh` | (automatic) | When you mention something new about the business, Claude offers to update its notes |
 
 ## Writing

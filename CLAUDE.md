@@ -46,7 +46,7 @@ If `context/content.md` still says "Status: not filled in yet", you can't resear
 
 | Folder | What's in it |
 |---|---|
-| **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Content Machine: one Content calendar page with views to flick between at the top (Calendar with month and week and drag and drop, To do, Ideas, Research, Platforms), a Health check button and a Settings gear. The **Brain dump** button at the top (shared by every tool, and on Home) records a voice note or a typed one. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-task-list` |
+| **http://localhost:4747** | The app. It opens on Home (a dashboard of boxes they arrange themselves), then Content Machine: one Content calendar page with views to flick between at the top (Calendar with month and week and drag and drop, To do, Ideas, Research, Platforms), a Health check button and a Settings gear. The **Brain dump** button at the top (shared by every tool, and on Home) records a voice note or a typed one. A small helper in `apps/server/` runs it on this computer. If it isn't running, use `.claude/skills/open-the-app` |
 | `Open Content Machine.html` | Double-clicking it goes to the link above when the app is running |
 | `apps/content/` | The content app. Its plan is `apps/content/data/content.json`; `apps/content/CLAUDE.md` explains the format and the rules |
 | `apps/shared/` | The app's look: `theme.css` holds every colour and font. Also the toolkit menu: `catalogue.json` lists all 7 tools and the booking link |
@@ -73,7 +73,7 @@ When a request matches a skill in `.claude/skills/`, read that skill's `SKILL.md
 | "Here's a case study", "write up this job" | `.claude/skills/use-my-case-study` |
 | "What's due today?", "what do I need to post?", "what's outstanding?" | `.claude/skills/content-check-in` |
 | "I've posted it", "that's gone out" | `.claude/skills/ive-posted-it` |
-| "Open my content plan", "it's not loading" | `.claude/skills/open-task-list` (it starts the app for every tool in this folder) |
+| "Open my content machine", "open the app", "it's not loading" | `.claude/skills/open-the-app` (it starts the app for every tool in this folder) |
 | "Sort my brain dump", a messy note (and every note from the Brain dump button) | `.claude/skills/sort-brain-dump` (shared by every tool), which hands content to `.claude/skills/sort-content-brain-dump` |
 | "Make this sound less robotic", any text you write | `.claude/skills/human-email` |
 | "Write it like me", "learn how I write" | `.claude/skills/write-like-me` |
@@ -82,6 +82,7 @@ When a request matches a skill in `.claude/skills/`, read that skill's `SKILL.md
 | "Set me up", "carry on setting up" | `.claude/skills/setup` |
 | "Connect my..." | `.claude/skills/connect-a-tool` |
 | "Make it match my brand", "use our colours", "put our logo on it" | `.claude/skills/match-my-brand` |
+| "Get the latest version", "any updates?", "update the app" | `.claude/skills/get-updates` |
 | They mention a new service, a new kind of customer, a team change | `.claude/skills/keep-context-fresh` |
 
 Any text you draft for them follows `.claude/skills/human-email`, `.claude/skills/write-like-me` and `context/voice.md`. Platform limits and what each platform rewards are in `.claude/skills/write-posts/references/platforms.md`.

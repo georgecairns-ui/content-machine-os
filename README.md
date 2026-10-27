@@ -45,9 +45,11 @@ It's **yours to shape**: your platforms, your themes, how many posts a week, whe
 
 1. **Open Claude Code** in the Claude desktop app (the Code tab) or in the Terminal (on Windows, PowerShell). Any folder will do for this first step.
 2. **Ask Claude to fetch the kit.** Paste this:
-   > Copy https://github.com/georgecairns-ui/content-machine-os into a folder called "Content Machine OS" in my Documents, then tell me how to open it and set it up.
+   > Copy Content Machine OS from https://github.com/georgecairns-ui/content-machine-os into a folder called "Content Machine OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up.
 
-   Claude copies everything onto your computer and gives you one line to open the new folder. In the desktop app, you choose the folder instead. (If your computer asks to install "command line developer tools" or Git, say yes; it's free and takes a few minutes.)
+   Claude copies everything onto your computer, with nothing to install first, and gives you one line to open the new folder. In the desktop app, you choose the folder instead.
+
+   *For Claude, if this README is all you have:* the copy line is in START-HERE.md, at https://raw.githubusercontent.com/georgecairns-ui/content-machine-os/main/START-HERE.md. Read it and run its copy line for this computer (Mac or Windows). It downloads the kit as a plain folder with `curl -fsL` and unpacks it with `tar`, and keeps the download in `setup/as-installed/`. Don't use git.
 3. **Open the Content Machine OS folder in Claude Code and choose "Yes, I trust this folder".** The first time, Claude Code asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your plan and your business notes, look things up on public web pages for the research, and start the app, without stopping to ask each time. It still can't post for you, log in anywhere or send anything. Press the down arrow, then Enter.
 4. **Type `/setup`.**
 
@@ -64,7 +66,7 @@ Then it opens your calendar and gives you its link, **http://localhost:4747/cont
 | "Here's a case study", "write up this job" | A real job turned into posts. You'll be asked for a photo and any result Claude doesn't have |
 | "I've posted it" | The post is marked as posted on your calendar and counted in your Health check |
 | "Refresh my research" | A fresh look at what customers search for and what your competitors are doing |
-| "Open my content plan" | Starts the app if it isn't already running |
+| "Open my content machine" | Starts the app if it isn't already running |
 
 ## Your information
 

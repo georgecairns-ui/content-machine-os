@@ -28,6 +28,7 @@ Then tell them, briefly:
 - **What to say next**: "plan my content" for more weeks, "what's due today?", "I've got an idea", "write my waiting posts", and "refresh my research" about once a month.
 - Their link, **http://localhost:4747/content/**. Bookmark it.
 - That Claude never posts for them.
+- That they can say "get the latest version" any time and you will bring the app up to date, keeping everything of theirs.
 
 ## 3. A weekly plan (optional)
 

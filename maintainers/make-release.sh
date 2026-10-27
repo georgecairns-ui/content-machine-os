@@ -111,6 +111,27 @@ if "Setup: not done yet" not in (root / "CLAUDE.md").read_text():
 for f in sorted((root / "apps").glob("*/data/media/**/*")):
     if f.is_file() and f.name != ".gitkeep":
         problems.append(f"{f.relative_to(root)} is a person's own photo or video and must not ship")
+# A customer's saved downloads never ship: setup/as-installed/ holds only its README
+for f in sorted((root / "setup/as-installed").rglob("*")):
+    if f.is_file() and f.name not in ("README.md", ".DS_Store"):
+        problems.append(f"{f.relative_to(root)} is a customer's saved download and must not ship")
+# The shared version in toolkit.json must be the one in apps/shared/VERSION
+shared_version = (root / "apps/shared/VERSION").read_text().split()[0]
+if str(json.loads((root / "toolkit.json").read_text()).get("sharedVersion")) != shared_version:
+    problems.append(f"toolkit.json sharedVersion is {json.loads((root / 'toolkit.json').read_text()).get('sharedVersion')!r} but apps/shared/VERSION says {shared_version}: change them together")
+# Shared parts are identical in every tool, so they must not name one. No file may use the old start-up names,
+# and no message in the scripts, the helper or the shared page code may say "Content Machine OS" (they read the tool's name from toolkit.json)
+skip_dirs = {".git", "dist", "maintainers", "node_modules"}
+for f in sorted(root.rglob("*")):
+    if not f.is_file() or skip_dirs & set(f.relative_to(root).parts) or f.suffix in (".png", ".jpg", ".woff2", ".zip", ".gz", ".ico"):
+        continue
+    txt = f.read_text(errors="ignore")
+    rel = str(f.relative_to(root))
+    for old in ("open-task-list", "start-task-list"):
+        if old in txt:
+            problems.append(f"{rel} uses the old name {old} (it is now open-the-app / start-app, the same in every tool)")
+    if re.match(r"setup/scripts/|apps/server/|apps/shared/js/", rel) and re.search(r"Content Machine OS|(?<!window\.)TaskListOS", txt):
+        problems.append(f"{rel} names a tool (Content Machine OS): shared parts read the name from toolkit.json")
 for p in problems:
     print("  - " + p, file=sys.stderr)
 sys.exit(1 if problems else 0)
@@ -119,6 +140,7 @@ PYEOF
 # ---------- 2. Copy, leaving out what customers don't need ----------
 mkdir -p "$OUT" "$DIST"
 rsync -a \
+  --include 'setup/as-installed/README.md' --exclude 'setup/as-installed/*' \
   --exclude '.git' --exclude '.gitignore' --exclude 'dist' --exclude 'maintainers' \
   --exclude '.claude/launch.json' --exclude '.claude/settings.local.json' --exclude '.claude/.cc-writes' \
   --exclude '*.backup.json' --exclude '*.tmp-*' --exclude 'apps/home/data' --exclude '.DS_Store' --exclude '._*' --exclude 'Thumbs.db' --exclude 'desktop.ini' \
@@ -128,7 +150,7 @@ rsync -a \
 find "$OUT" -mindepth 2 -type d -name .claude -empty -prune -exec rm -rf {} +
 
 # ---------- 3. Checks ----------
-for f in "START-HERE.md" "CLAUDE.md" "LICENSE" "README.md" "Open Content Machine.html" "apps/content/index.html" "apps/content/data/content.json" "apps/content/menu.json" "apps/content/home-boxes.js" "apps/content/claude-jobs.json" "apps/content/CLAUDE.md" "apps/content/ATTACH-CLAUDE.md" "apps/content/app/app.js" "apps/content/app/app.css" "apps/content/app/model.js" "apps/content/app/components.js" "apps/content/app/media.js" "apps/content/app/calendar.js" "apps/content/app/drawer.js" "apps/content/app/view-todo.js" "apps/content/app/view-ideas.js" "apps/content/app/view-research.js" "apps/content/app/view-platforms.js" "apps/content/app/hovercard.js" "apps/content/app/settings.js" "apps/content/app/view-health.js" "context/content.md" "setup/progress.md" "setup/05-get-to-know-the-business.md" "setup/content-01-your-business.md" "setup/content-02-your-platforms.md" "setup/content-03-research.md" "setup/content-04-first-plan.md" "setup/09-check-and-hand-over.md" "skills-to-upload/README.md" ".claude/skills/README.md" ".claude/settings.json" ".claude/skills/write-posts/references/platforms.md" "setup/scripts/save-key.sh" "setup/scripts/start-task-list.sh" "apps/server/server.js" "apps/server/server.py" "setup/connections/README.md" "toolkit.json" "ATTACHING.md" "apps/installed.json" "apps/shared/catalogue.json" "apps/shared/VERSION" "apps/shared/sidebar.css" "apps/shared/js/sidebar.js" "apps/shared/js/theme.js" "apps/shared/js/braindump.js" ".claude/skills/sort-brain-dump/SKILL.md" "apps/shared/images/claude-icon.png" "apps/home/index.html" "apps/home/home.js" "apps/home/home.css" "apps/shared/fonts/Figtree-Variable.woff2" "docs/CUSTOMISING.md" "docs/PRIVACY-AND-SAFETY.md"; do
+for f in "START-HERE.md" "CLAUDE.md" "LICENSE" "README.md" "Open Content Machine.html" "apps/content/index.html" "apps/content/data/content.json" "apps/content/menu.json" "apps/content/home-boxes.js" "apps/content/claude-jobs.json" "apps/content/CLAUDE.md" "apps/content/ATTACH-CLAUDE.md" "apps/content/app/app.js" "apps/content/app/app.css" "apps/content/app/model.js" "apps/content/app/components.js" "apps/content/app/media.js" "apps/content/app/calendar.js" "apps/content/app/drawer.js" "apps/content/app/view-todo.js" "apps/content/app/view-ideas.js" "apps/content/app/view-research.js" "apps/content/app/view-platforms.js" "apps/content/app/hovercard.js" "apps/content/app/settings.js" "apps/content/app/view-health.js" "context/content.md" "setup/progress.md" "setup/05-get-to-know-the-business.md" "setup/content-01-your-business.md" "setup/content-02-your-platforms.md" "setup/content-03-research.md" "setup/content-04-first-plan.md" "setup/09-check-and-hand-over.md" "skills-to-upload/README.md" ".claude/skills/README.md" ".claude/settings.json" ".claude/skills/write-posts/references/platforms.md" "setup/scripts/save-key.sh" "setup/scripts/start-app.sh" "apps/server/server.js" "apps/server/server.py" "setup/connections/README.md" "toolkit.json" "ATTACHING.md" "apps/installed.json" "apps/shared/catalogue.json" "apps/shared/VERSION" "apps/shared/sidebar.css" "apps/shared/js/sidebar.js" "apps/shared/js/theme.js" "apps/shared/js/braindump.js" ".claude/skills/sort-brain-dump/SKILL.md" "apps/shared/images/claude-icon.png" "apps/home/index.html" "apps/home/home.js" "apps/home/home.css" "apps/shared/fonts/Figtree-Variable.woff2" "docs/CUSTOMISING.md" "docs/PRIVACY-AND-SAFETY.md" "setup/as-installed/README.md" ".claude/skills/get-updates/SKILL.md" ".claude/skills/open-the-app/SKILL.md"; do
   [ -e "$OUT/$f" ] || fail "missing $f"
 done
 for f in apps/content/data/content.json apps/content/menu.json apps/content/claude-jobs.json toolkit.json apps/installed.json apps/shared/catalogue.json .claude/settings.json; do
