@@ -2,7 +2,7 @@
   "id": "content",
   "name": "Content Machine OS",
   "version": "1.0.0",
-  "sharedVersion": "12",
+  "sharedVersion": "13",
   "attachingVersion": "4",
   "app": "apps/content/",
   "media": true,
