@@ -37,7 +37,7 @@ Each weekly run also does a content check-in, which reads every platform that's 
 1. From your own list of tools, collect the names of that connection's read tools. These platforms have no guide in `setup/connections/`, so only names that start with `get_`, `list_`, `search_`, `read_`, `find_`, `fetch_` or `query_`, or end with `_search` or `_get`, and only if they only read. Never any name containing create, update, delete, send, mark, archive, add, remove, set, move, post, reply, label, trash or write, whatever else it matches.
 2. Show them the list in one line per platform, for example: "LinkedIn: read your page and your posts." Ask: "Can I let the weekly plan do just these without asking each time?"
 3. If they say no, don't drop the weekly plan: offer it on its own, without the content check-in. Say plainly: "Then I'll leave out checking your connections and just plan your next weeks once a week, which needs no connections. Shall I still do that?" With a yes, go to 2.3 and use the plan-only prompt there. With a no, note "Weekly plan: said no" in `setup/progress.md`, leave out 2.3 and go to section 3.
-   With a yes, add them to `permissions.allow` in this folder's `.claude/settings.local.json` (create it if it isn't there, as `{ "permissions": { "allow": [] } }`), using the full tool names as they appear in your list (they start `mcp__`). Never add anything that sends, replies, forwards, deletes, archives, labels, pays, posts, books or changes anything.
+   If they said yes to the question in item 2, add them to `permissions.allow` in this folder's `.claude/settings.local.json` (create it if it isn't there, as `{ "permissions": { "allow": [] } }`), using the full tool names as they appear in your list (they start `mcp__`). Never add anything that sends, replies, forwards, deletes, archives, labels, pays, posts, books or changes anything.
 
 `.claude/settings.local.json` stays on this computer and is never part of an update.
 
@@ -75,7 +75,7 @@ Then tell them, briefly:
 - Their link, **http://localhost:4747/content/**. Bookmark it.
 - That Claude never posts for them.
 - That they can say "get the latest version" any time and you will bring the app up to date, keeping everything of theirs.
-- **Their platforms**, one line each: which you connected, and which can be read from an export.
+- **Their platforms**, one line each: which you connected, which can be read from an export, and which have no account yet.
 - **The weekly plan**, if they chose it: the day and time it runs.
 
 ## 4. Mark setup complete
