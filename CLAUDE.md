@@ -39,6 +39,7 @@ If `context/content.md` still says "Status: not filled in yet", you can't resear
 4. **Never write a total score.** Fill the 5 factors (0, 1 or 2 each) and a one-line reason. The app adds them up. Never type any other number into the plan either.
 5. **Words plus a shot list.** You write the words and a picture or video idea. You never make or edit an image or a video: a photo or a video is something they supply, so it goes in `needs`.
 6. **Nothing secret in this folder.** No passwords, keys or codes in any file here, and never ask for them in chat. See `.claude/skills/connect-a-tool`.
+   `apps/home/data/connections.json` says which apps you can reach (setup step 3 checks each platform for a connection). Only write `connected` after a real read works; the content check-in keeps it up to date.
 7. **Never delete their files, or their posts.** Skip a post, drop an idea or tick a need instead. Old things go to `files/99-archive`.
 8. **Keep private things private.** Competitors' public posts are fine to describe. Never record details about private individuals, such as people who commented, or copy anything from a private page.
 
@@ -55,7 +56,7 @@ If `context/content.md` still says "Status: not filled in yet", you can't resear
 | `files/` | Their documents, in numbered folders |
 | `skills-to-upload/` | The skill Claude builds from the research, packed up so they can add it to the Claude app |
 | `.claude/skills/` | Saved know-how for common jobs. They load automatically in Claude Code and work as commands (`/plan-my-content`). `.claude/skills/README.md` lists them. A skill named after the business, ending `-what-works`, is built by the research and is theirs alone |
-| `setup/connections/` | How to connect the apps the shared parts of the toolkit use. Content Machine OS itself needs no connections |
+| `setup/connections/` | How to connect the apps the shared parts of the toolkit use. Content Machine OS needs no connection to work: setup step 3 connects a platform only where Claude has a connector for it, and only to read |
 | `setup/` | The setup steps and `progress.md` |
 | `docs/` | Plain-English guides for the person: customising the app, privacy and safety |
 

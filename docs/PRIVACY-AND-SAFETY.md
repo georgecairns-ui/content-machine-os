@@ -44,11 +44,15 @@ It's a small file about your audience and your industry, saved in `.claude/skill
 
 ## What about passwords and keys?
 
-Content Machine OS doesn't need a sign-in to anything. It never asks for a password or a key, and none should ever go into this folder or into the chat.
+Content Machine OS doesn't need a sign-in to anything. It never asks for a password or a key, and none should ever go into this folder or into the chat. If a platform you post on has a Claude connector, setup can connect it through Claude's Connectors: you sign in on the platform's own page, never in the chat or in this folder, and Claude only reads it, never posts. If a platform has no Claude connector, Claude reads a CSV or PDF export of it instead: you drop the export in the files folder and Claude reads it whenever you ask.
 
 ## Does it send anything anywhere?
 
 No. It doesn't send emails, messages or posts. Your plan is saved in files on your computer. There's nothing for Get AI Powers to see.
+
+## Does it run when I'm not there?
+
+Only if you choose the weekly plan during setup; you can skip it. Then the Claude app plans your next weeks once a week, on the day and at the time you agreed, while your computer is on and the app is open, and reads any platform you connected to check the connection still works. It uses a little of your Claude allowance each time. It only plans and writes; it never posts or changes anything on your platforms. You can pause it in the Claude app.
 
 ## What is the helper?
 

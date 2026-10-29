@@ -12,13 +12,14 @@ Content Machine OS is part of a toolkit of 7 free tools from Get AI Powers. The 
 
 ## What happens when you type /setup
 
-You copy the kit, open it in Claude Code and type **/setup**. In about 30 minutes, Claude:
+You copy the kit, open it in the Claude desktop app (the Code tab) and type **/setup**. In 30 to 40 minutes, Claude:
 
 - **Gets to know your business**, in a short chat, then matches the app to your brand (your colours, your font, your logo if you have one).
 - **Asks what you sell**, the problems you solve, what makes you different, who your customers are and where you work, one question at a time, and saves it as it goes.
-- **Chooses your platforms with you.** Instagram, TikTok, LinkedIn, Facebook, YouTube Shorts, Google Business Profile, X or an email newsletter, with a realistic number of posts a week for each. A rhythm you can keep beats a heavier one you drop.
+- **Chooses your platforms with you.** Instagram, TikTok, LinkedIn, Facebook, YouTube Shorts, Google Business Profile, X or an email newsletter, with a realistic number of posts a week for each. A rhythm you can keep beats a heavier one you drop. Where a platform has a Claude connector, Claude connects it through Claude's Connectors (you sign in on the platform's own page, no keys) and proves it by reading your own account; where it has none, you can give it a CSV or PDF export instead.
 - **Researches your market.** What people search for and ask about what you do, what's in season, and what your competitors post. Public web pages only, with where each finding came from. Then it builds a skill of your own from it.
 - **Plans your first posts** and shows you how the calendar works.
+- **Plans the next weeks once a week, if you'd like it**, on a day and at a time you choose. You can skip it.
 - **Checks it all works and hands over**, with a summary of what's planned and what you need to do.
 
 ## What it does
@@ -37,21 +38,21 @@ It's **yours to shape**: your platforms, your themes, how many posts a week, whe
 
 ## What you need
 
-- **Access to Content Machine OS.** It's private: Get AI Powers invites your GitHub account. Accept the invitation from the email GitHub sends you. (No GitHub account? Make a free one at github.com and send Get AI Powers your username.)
-- **Claude Code**, signed in with a paid Claude plan (Pro or Max). The Claude desktop app works too.
+- **The Claude desktop app** (setup runs in its Code tab).
+- **A paid Claude plan (Pro or Max)**, signed in to the desktop app.
 - Nothing else to install in most cases. The app runs on your own computer using Node (Claude installs it for you if it's missing, with your permission).
-- About 30 minutes, once.
+- 30 to 40 minutes, once.
 
 ## Get started
 
-1. **Open Claude Code** in the Claude desktop app (the Code tab) or in the Terminal (on Windows, PowerShell). Any folder will do for this first step.
+1. **Open the Claude desktop app and choose the Code tab.** Any folder will do for this first step.
 2. **Ask Claude to fetch the kit.** Paste this:
-   > Copy Content Machine OS from https://github.com/georgecairns-ui/content-machine-os into a folder called "Content Machine OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up. Help me sign in to GitHub first if I need to.
+   > Copy Content Machine OS from https://github.com/georgecairns-ui/content-machine-os into a folder called "Content Machine OS" in my Documents, using the copy line in its START-HERE.md (not git), then tell me how to open it and set it up.
 
-   Claude checks you're signed in to GitHub (if not, it gives you one line that opens GitHub in your browser to approve this computer), copies everything onto your computer and gives you one line to open the new folder. In the desktop app, you choose the folder instead.
+   Claude copies everything onto your computer and tells you how to open the new folder. In the desktop app, you choose the folder in the Code tab.
 
-   *For Claude, if this README is all you have:* the copy steps are in START-HERE.md. Read it with the person's GitHub sign-in, `gh api repos/georgecairns-ui/content-machine-os/contents/START-HERE.md -H "Accept: application/vnd.github.raw"`, and follow its copy steps for this computer (Mac or Windows). They check the GitHub sign-in with `gh`, download the kit as a plain folder with `curl -fsSL` and unpack it with `tar`, and keep the download in `setup/as-installed/`. Don't use git.
-3. **Open the Content Machine OS folder in Claude Code and choose "Yes, I trust this folder".** The first time, Claude Code asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your plan and your business notes, look things up on public web pages for the research, and start the app, without stopping to ask each time. It still can't post for you, log in anywhere or send anything. Press the down arrow, then Enter.
+   *For Claude, if this README is all you have:* read START-HERE.md on the repository page at https://github.com/georgecairns-ui/content-machine-os, then copy the folder with the Mac or Windows line in it.
+3. **In the Code tab, choose the Content Machine OS folder and pick "Yes, I trust this folder".** The first time, the app asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your plan and your business notes, look things up on public web pages for the research, and start the app, without stopping to ask each time. It still can't post for you, log in anywhere or send anything.
 4. **Type `/setup`.**
 
 Then it opens your calendar and gives you its link, **http://localhost:4747/content/**. Bookmark it.
@@ -71,7 +72,7 @@ Then it opens your calendar and gives you its link, **http://localhost:4747/cont
 
 ## Your information
 
-Your plan lives in this folder on your computer, in one file. Your notes about the business are in `context/`. For the research, Claude reads public web pages (search suggestions, forums, news and your competitors' public pages). It never logs in anywhere, never follows or messages anyone and never posts for you. There's no Content Machine OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
+Your plan lives in this folder on your computer, in one file. Your notes about the business are in `context/`. For the research, Claude reads public web pages (search suggestions, forums, news and your competitors' public pages). It never logs in anywhere, never follows or messages anyone and never posts for you. Any platform you connect is connected through Claude's Connectors: you sign in on the platform's own page, with no keys, and Claude only reads it. A platform with no Claude connector can be read from a CSV or PDF export you drop in the files folder. There's no Content Machine OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
 
 ## Make it yours
 
@@ -89,9 +90,9 @@ toolkit.json           what this tool is, for attaching it to the others in the 
 ATTACHING.md           how the toolkit's tools attach to each other
 CLAUDE.md              Claude's standing instructions in this folder
 Open Content Machine.html    double-click to open your calendar (or use the link Claude gives you)
-setup/                 the 6 setup steps and the key scripts
+setup/                 the 6 setup steps
 context/               Claude's notes about your business
-.claude/skills/        saved know-how; each one also works as a command in Claude Code
+.claude/skills/        saved know-how; each one also works as a command in Claude
 skills-to-upload/      the skill Claude builds about your business, packed up for the Claude app
 files/                 your business documents, in numbered folders
 apps/                  the app and its look (theme.css); apps/content/data/content.json is your plan
