@@ -4,7 +4,7 @@
 
 Most business owners know they should post. They stare at a blank page, post twice, then stop for 3 months. Content Machine OS asks you about your business once, then looks up what your customers search for and what your competitors do well, plans your posts on a calendar, and writes each one in your voice. Every post is scored out of 10 for each platform, so you can see where it's likely to do best.
 
-**Claude never posts for you.** You approve each post (or let Claude finish the ones you trust) and post it yourself: press Copy, press Open, paste, post, then tell it "I've posted it". Content Machine OS never posts, schedules, messages, follows or logs in anywhere, and nothing leaves your computer except what Claude looks up on public web pages.
+**Claude never posts for you.** You approve each post (or let Claude finish the ones you trust) and post it yourself: press Copy, press Open, paste, post, then tell it "I've posted it". Content Machine OS never posts, schedules, messages or follows anyone, and never logs in to anything except the read-only connections you set up in step 3, and nothing leaves your computer except what Claude looks up on public web pages.
 
 **See it first:** [a clickable demo with a made-up business](https://claude.ai/artifact/LLrFahQSW8gYtxkiFiabiy), opening on a month of planned posts.
 
@@ -52,7 +52,7 @@ It's **yours to shape**: your platforms, your themes, how many posts a week, whe
    Claude copies everything onto your computer and tells you how to open the new folder. In the desktop app, you choose the folder in the Code tab.
 
    *For Claude, if this README is all you have:* read START-HERE.md on the repository page at https://github.com/georgecairns-ui/content-machine-os, then copy the folder with the Mac or Windows line in it.
-3. **In the Code tab, choose the Content Machine OS folder and pick "Yes, I trust this folder".** The first time, the app asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your plan and your business notes, look things up on public web pages for the research, and start the app, without stopping to ask each time. It still can't post for you, log in anywhere or send anything.
+3. **In the Code tab, choose the Content Machine OS folder and pick "Yes, I trust this folder".** The first time, the app asks whether you trust the folder and warns that it pre-approves some permissions. Those permissions only let Claude update your plan and your business notes, look things up on public web pages for the research, and start the app, without stopping to ask each time. It still can't post for you or send anything, and it never logs in to anything except the read-only connections you set up in step 3.
 4. **Type `/setup`.**
 
 Then it opens your calendar and gives you its link, **http://localhost:4747/content/**. Bookmark it.
@@ -72,7 +72,7 @@ Then it opens your calendar and gives you its link, **http://localhost:4747/cont
 
 ## Your information
 
-Your plan lives in this folder on your computer, in one file. Your notes about the business are in `context/`. For the research, Claude reads public web pages (search suggestions, forums, news and your competitors' public pages). It never logs in anywhere, never follows or messages anyone and never posts for you. Any platform you connect is connected through Claude's Connectors: you sign in on the platform's own page, with no keys, and Claude only reads it. A platform with no Claude connector can be read from a CSV or PDF export you drop in the files folder. There's no Content Machine OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
+Your plan lives in this folder on your computer, in one file. Your notes about the business are in `context/`. For the research, Claude reads public web pages (search suggestions, forums, news and your competitors' public pages). The research never logs in anywhere or uses a connection. Claude never follows or messages anyone and never posts for you. Any platform you connect is connected through Claude's Connectors: you sign in on the platform's own page, with no keys, and Claude only reads your own account when you ask. A platform with no Claude connector can be read from a CSV or PDF export you drop in the files folder. There's no Content Machine OS account or server; Get AI Powers can't see any of it. Read [docs/PRIVACY-AND-SAFETY.md](docs/PRIVACY-AND-SAFETY.md) for the detail.
 
 ## Make it yours
 

@@ -13,8 +13,8 @@ Check these yourself. Fix anything that fails, then check again.
 - [ ] Research shows what was found, with where each came from, and Platforms shows their choices.
 - [ ] The **Plan next weeks** and **Refresh research** buttons can ask Claude to run a job. It needs Claude Code installed on this computer; if it isn't, the app says to ask Claude instead, rather than failing quietly.
 - [ ] The app looks right in both light and dark (the moon or sun button at the top).
-- [ ] Nothing secret (a password, a key, a code) is anywhere in this folder, and nothing was posted, sent or logged in to anywhere.
-- [ ] Every platform they picked in step 3 has a row in `apps/home/data/connections.json` in a final status: `connected` with a `checked` date from this setup, `export-only`, `no-connector` or `needs-attention`, none left as `not-connected`. A `connected` one still reads now (one small read).
+- [ ] Nothing secret (a password, a key, a code) is anywhere in this folder, and nothing was posted or sent, and nothing was logged in to except the read-only connections from step 3.
+- [ ] Every platform they picked in step 3 has a row in `apps/home/data/connections.json` in a final status: `connected` with a `checked` date from this setup, `export-only`, `no-connector` or `needs-attention`, none left as `not-connected` except a platform they have no account on yet (note "No account yet"). A `connected` one still reads now (one small read).
 
 ## 2. A weekly plan (their choice)
 
@@ -36,7 +36,7 @@ Each weekly run also does a content check-in, which reads every platform that's 
 
 1. From your own list of tools, collect the names of that connection's read tools. These platforms have no guide in `setup/connections/`, so only names that start with `get_`, `list_`, `search_`, `read_`, `find_`, `fetch_` or `query_`, or end with `_search` or `_get`, and only if they only read. Never any name containing create, update, delete, send, mark, archive, add, remove, set, move, post, reply, label, trash or write, whatever else it matches.
 2. Show them the list in one line per platform, for example: "LinkedIn: read your page and your posts." Ask: "Can I let the weekly plan do just these without asking each time?"
-3. If they say no, tell them plainly: "Then the weekly plan will stop at each permission prompt. If you'd rather, say 'plan my content' whenever you want more weeks planned." Note "Weekly plan: said no" in `setup/progress.md`, leave out 2.3 and go to section 3.
+3. If they say no, don't drop the weekly plan: offer it on its own, without the content check-in. Say plainly: "Then I'll leave out checking your connections and just plan your next weeks once a week, which needs no connections. Shall I still do that?" With a yes, go to 2.3 and use the plan-only prompt there. With a no, note "Weekly plan: said no" in `setup/progress.md`, leave out 2.3 and go to section 3.
    With a yes, add them to `permissions.allow` in this folder's `.claude/settings.local.json` (create it if it isn't there, as `{ "permissions": { "allow": [] } }`), using the full tool names as they appear in your list (they start `mcp__`). Never add anything that sends, replies, forwards, deletes, archives, labels, pays, posts, books or changes anything.
 
 `.claude/settings.local.json` stays on this computer and is never part of an update.
@@ -48,6 +48,7 @@ Create it from this session, in this folder: a scheduled task runs in the folder
 First look with `list_scheduled_tasks` for an existing weekly plan task for this folder. If there is one, update it to the agreed day and time rather than making another. If not, create it yourself with the desktop app's scheduled tasks tool (`create_scheduled_task`):
 - **Title:** "<their business> weekly plan", for example "Fern & Finch weekly plan".
 - **Prompt:** `In <full path of this folder>, run /plan-my-content, then /content-check-in: follow .claude/skills/plan-my-content/SKILL.md, then .claude/skills/content-check-in/SKILL.md. Never send anything except emails the person has already approved in the app; apart from those, never reply, forward, delete, archive, label, pay or post anything.` Fill in this folder's full path.
+  If no platform is `connected`, or they said no to the read tools in 2.2 but yes to the plan on its own, use the plan-only prompt instead: `In <full path of this folder>, run /plan-my-content: follow .claude/skills/plan-my-content/SKILL.md. Never send anything except emails the person has already approved in the app; apart from those, never reply, forward, delete, archive, label, pay or post anything.`
 - **When:** the day and time they agreed, once a week.
 
 Then run it once now (`run_scheduled_task`) and check it finished without stopping to ask anything (`list_task_runs`). With the first plan already in place it only fills gaps, so it adds little or nothing. If it stopped at a permission, ask the person before adding that tool, and only if it is read-only under 2.2's rule; then run it again. If the stop is at a tool that isn't read-only, tell them and leave it. Only ever one weekly plan task for this folder.
